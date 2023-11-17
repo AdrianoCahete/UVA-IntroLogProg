@@ -14,10 +14,12 @@ int main()
 
     float res;
 
+start:
     printf("\n------------------------ \n");
     printf("     Calculadora ");
     printf("\n------------------------ \n\n");
 
+inputop:
     printf("Escolha uma operacao matematica, usando os simbolos de cada uma: \n");
     printf("1 [+]: Soma \n");
     printf("2 [-]: Subtracao \n");
@@ -47,8 +49,13 @@ int main()
     case '4':
         printf("[/] Voce selecionou Divisao\n");
         break;
+
+    default:
+        printf("\n[?] Algo deu errado. Tem certeza que escolheu a operacao corretamente?\n\n");
+        return 0;
     }
 
+inputnum:
     printf("    Digite o primeiro numero: ");
     scanf("%d", &n1);
 
@@ -86,7 +93,7 @@ int main()
             scanf("%d", &n2);
         }
 
-        res = n1 / n2;
+        res = (double)n1 / (double)n2;
         printf("\n[=] A divisao de %d por %d e igual a %.2f", n1, n2, res);
         printf("\n\n ------------------------ \n");
         break;
