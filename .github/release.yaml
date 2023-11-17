@@ -1,0 +1,41 @@
+name: Release Build
+
+on:
+  # push:
+  #   branches: [main]
+
+  # pull_request:
+  #   branches: [main]
+  #   types: [closed]
+
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create Build Directory
+        run: cmake -E make_directory ${{github.workspace}}/build
+
+      - name: Install Packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y gcc-multilib zip unzip
+
+      - name: Build
+        run: cmake --build ./build --config Release
+
+      - name: Create Artifact
+      run: |
+        mkdir release
+        cp build/calc.exe release/calc.exe
+
+    - name: Publish Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: release
+        path: release
