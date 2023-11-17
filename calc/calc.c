@@ -13,16 +13,36 @@ int main()
     int n1, n2;
     float res;
 
-    printf("+, -, *, /");
+    clrscr();
+
+    printf("Escolha uma operação mantemática: +, -, *, / \n");
+    printf("1 [+]: Soma \n");
+    printf("2 [/]: Subtração \n");
+    printf("2 [/]: Multiplicação \n");
+    printf("2 [/]: Divisão \n");
 
     scanf("%c", &op);
-    // TODO: Make selectable instead of wait for input
+
+    if (op == '+' || op == '1')
+    {
+        printf("[+] Você selecionou Soma");
+    }
+    else if (op == '-' || op == '2')
+    {
+        printf("[-] Você selecionou Subtração");
+    }
+    else if (op == '*' || op == '3')
+    {
+        printf("[/] Você selecionou Multiplicação");
+    }
+    else if (op == '/' || op == '4')
+    {
+        printf("[/] Você selecionou Divisão");
+    }
 
     scanf(" %d", &n1);
     scanf(" %d", &n2);
     // TODO: Check if is a number
-
-    // TODO: Show chosen op
 
     switch (op)
     {
