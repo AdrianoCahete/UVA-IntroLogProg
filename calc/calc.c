@@ -9,9 +9,14 @@
 int main()
 {
 
-    char op;
     int n1, n2;
+    char op;
+
     float res;
+
+    printf("\n------------------------ \n");
+    printf("     Calculadora ");
+    printf("\n------------------------ \n\n");
 
     printf("Escolha uma operacao matematica, usando os simbolos de cada uma: \n");
     printf("1 [+]: Soma \n");
@@ -21,21 +26,27 @@ int main()
 
     scanf("%c", &op);
 
-    if (op == '+' || op == '1')
+    switch (op)
     {
+    case '+':
+    case '1':
         printf("[+] Voce selecionou Soma \n");
-    }
-    else if (op == '-' || op == '2')
-    {
+        break;
+
+    case '-':
+    case '2':
         printf("[-] Voce selecionou Subtracao \n");
-    }
-    else if (op == '*' || op == '3')
-    {
+        break;
+
+    case '*':
+    case '3':
         printf("[*] Voce selecionou Multiplicacao\n");
-    }
-    else if (op == '/' || op == '4')
-    {
+        break;
+
+    case '/':
+    case '4':
         printf("[/] Voce selecionou Divisao\n");
+        break;
     }
 
     printf("    Digite o primeiro numero: ");
@@ -44,34 +55,44 @@ int main()
     printf("    Digite o segundo numero: ");
     scanf("%d", &n2);
 
-    // TODO: Check if is a number
-
     switch (op)
     {
     case '+':
     case '1':
         res = n1 + n2;
-        printf("\n[=] A soma de %d mais %d e igual a %.2f \n\n----------\n", n1, n2, res);
+        printf("\n[=] A soma de %d mais %d e igual a %.2f", n1, n2, res);
+        printf("\n\n ------------------------ \n");
         break;
 
     case '-':
     case '2':
         res = n1 - n2;
-        printf("\n[=] A subtracao de %d menos %d e igual a %.2f \n\n----------\n", n1, n2, res);
+        printf("\n[=] A subtracao de %d menos %d e igual a %.2f", n1, n2, res);
+        printf("\n\n ------------------------ \n");
         break;
 
     case '*':
     case '3':
         res = n1 * n2;
-        printf("\n[=] A multiplicacao de %d por %d e igual a %.2f \n\n----------\n", n1, n2, res);
+        printf("\n[=] A multiplicacao de %d por %d e igual a %.2f", n1, n2, res);
+        printf("\n\n ------------------------ \n");
         break;
 
     case '/':
     case '4':
+        if (n2 == 0)
+        {
+            printf("\n[=] O divisor nao pode ser 0, nao e possivel dividir por zero. Digite outro valor: ");
+            scanf("%d", &n2);
+        }
+
         res = n1 / n2;
-        // TODO: Check if 0
-        printf("\n[=] A divisao de %d por %d e igual a %.2f \n\n----------\n", n1, n2, res);
+        printf("\n[=] A divisao de %d por %d e igual a %.2f", n1, n2, res);
+        printf("\n\n ------------------------ \n");
         break;
+
+    default:
+        printf("\n[?] Algo deu errado. Tem certeza que escolheu a operacao corretamente?");
     }
 
     return 0;
