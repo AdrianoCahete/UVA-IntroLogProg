@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-char isEvenOdd(int num)
+char* isEvenOdd(int num)
 {
     if (num % 2 == 0)
     {
@@ -29,6 +29,18 @@ int main()
 
     printf("Digite o número final: ");
     scanf("%d", &endNum);
+
+    for (int i = startNum; i <= endNum; i++)
+    {
+
+        char *status = isEvenOdd(i);
+        printf("Número: %d - %s\n", i, status);
+
+        if (i % 2 == 0)
+        {
+            evenCount++;
+        }
+    }
 
     return 0;
 }
