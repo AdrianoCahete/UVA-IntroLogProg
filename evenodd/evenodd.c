@@ -12,11 +12,11 @@ char *isEvenOdd(int num)
 {
     if (num % 2 == 0)
     {
-        return "par";
+        return "Par";
     }
     else
     {
-        return "impar";
+        return "Impar";
     }
 }
 
@@ -24,17 +24,29 @@ int main()
 {
     int startNum, endNum, evenCount = 0;
 
+start:
+    printf("\n------------------------ \n");
+    printf("     Par ou Impar ");
+    printf("\n------------------------ \n\n");
+
+inputop:
     printf("Digite o numero inicial: ");
     scanf("%d", &startNum);
 
-    printf("Digite o numero final: \n");
+    printf("Digite o numero final: ");
     scanf("%d", &endNum);
+
+    if (startNum > endNum)
+    {
+        printf("\n[Erro] O numero inicial deve ser menor ou igual ao numero final.\n\n");
+        goto inputop;
+    }
 
     for (int i = startNum; i <= endNum; i++)
     {
 
         char *status = isEvenOdd(i);
-        printf("Num: %d - %s\n", i, status);
+        printf("\n[Num] %d | %s", i, status);
 
         if (i % 2 == 0)
         {
@@ -42,7 +54,7 @@ int main()
         }
     }
 
-    printf("Quantidade total de numeros pares: %d\n", evenCount);
+    printf("\n[Pares totais] %d\n", evenCount);
 
     return 0;
 }
