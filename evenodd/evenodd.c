@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-char* isEvenOdd(int num)
+char *isEvenOdd(int num)
 {
     if (num % 2 == 0)
     {
@@ -24,23 +24,25 @@ int main()
 {
     int startNum, endNum, evenCount = 0;
 
-    printf("Digite o número inicial: ");
+    printf("Digite o numero inicial: ");
     scanf("%d", &startNum);
 
-    printf("Digite o número final: ");
+    printf("Digite o numero final: \n");
     scanf("%d", &endNum);
 
     for (int i = startNum; i <= endNum; i++)
     {
 
         char *status = isEvenOdd(i);
-        printf("Número: %d - %s\n", i, status);
+        printf("Num: %d - %s\n", i, status);
 
         if (i % 2 == 0)
         {
             evenCount++;
         }
     }
+
+    printf("Quantidade total de numeros pares: %d\n", evenCount);
 
     return 0;
 }
