@@ -6,6 +6,7 @@
 // Yes, I put all my code and comments in english, sorry about that.
 // To students: please, do not copy or your work will be flagged as plagiarism.
 
+#include <ctype.h>
 #include <stdio.h>
 
 char *isEvenOdd(int num)
@@ -42,6 +43,12 @@ inputop:
         goto inputop;
     }
 
+    if (!(isdigit(startNum) && isdigit(endNum)))
+    {
+        printf("\n\n[Erro] O input inicial e/ou o input final nao e/sao numeros\n\n");
+        return 1;
+    }
+
     for (int i = startNum; i <= endNum; i++)
     {
 
@@ -54,7 +61,7 @@ inputop:
         }
     }
 
-    printf("\n[Pares totais] %d\n", evenCount);
+    printf("\n\n[Pares totais] %d\n", evenCount);
 
     return 0;
 }
