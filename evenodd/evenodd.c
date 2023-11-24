@@ -8,6 +8,27 @@
 
 #include <stdio.h>
 
+char isEvenOdd(int num)
+{
+    if (num % 2 == 0)
+    {
+        return "par";
+    }
+    else
+    {
+        return "impar";
+    }
+}
+
 int main()
 {
+    int startNum, endNum, evenCount = 0;
+
+    printf("Digite o número inicial: ");
+    scanf("%d", &startNum);
+
+    printf("Digite o número final: ");
+    scanf("%d", &endNum);
+
+    return 0;
 }
